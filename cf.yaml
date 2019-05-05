@@ -11,31 +11,3 @@ Resources:
   geohash:
     Type: AWS::Serverless::Function
     Properties:
-
-  type: AWS::Serverless::funcao
-  Handler: handler.py
-  Runtime: python 3.7
-  CodeUri: 's3://arn:aws:s3:::meetup39-cf-artifacts/funcao.zip'
-  Description: Teste
-  MemorySize: 1024
-  Timeout: 15
-  Policies:
-   - AWSLambdaExecute # Managed Policy
-   - Version: '2012-10-17' # Policy Document
-     Statement:
-       - Effect: Allow
-         Action:
-           - s3:GetObject
-           - s3:GetObjectACL
-         Resource: 'arn:aws:s3:::arn:aws:s3:::meetup39-cf-artifacts/*'
-  Environment:
-    Variables:
-      TABLE_NAME: my-table
-  Events:
-    PhotoUpload:
-      Type: S3
-      Properties:
-        Bucket: my-photo-bucket
-  Tags:
-    AppNameTag: ThumbnailApp
-    DepartmentNameTag: ThumbnailDepartment
